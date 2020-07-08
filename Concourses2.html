@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Created by DazerArt-->
+
+<meta name="viewport" content="width=device-width, user-scalable=no. initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+	</head>
+<body>
+<div class="bchat">
+<div class="wrap">
+		<div class="widget">
+			<div class="fecha">
+				<p id="diaSemana" class="diaSemana"></p>
+				<p id="dia" class="dia"></p>
+              <p>/</p>
+				<p id="mes" class="mes"></p>
+              <p>/</p>
+				<p id="year" class="year"></p>
+			</div>
+	
+			<div class="reloj">
+				<p id="horas" class="horas"></p>
+				<p>:</p>
+				<p id="minutos" class="minutos"></p>
+				<p>:</p>
+				<div class="caja-segundos">
+					<p id="ampm" class="ampm"></p>
+					<p id="segundos" class="segundos"></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	  <svg viewbox="0 0 100 20">
+  <defs>
+    <linearGradient id="gradient" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="5%" stop-color="#FFFFFF"/>
+      <stop offset="95%" stop-color="#00eeae"/>
+    </linearGradient>
+    <pattern id="wave" x="0" y="0" width="120" height="20" patternUnits="userSpaceOnUse">
+      <path id="wavePath" d="M-40 9 Q-30 7 -20 9 T0 9 T20 9 T40 9 T60 9 T80 9 T100 9 T120 9 V20 H-40z" mask="url(#mask)" fill="url(#gradient)"> 
+        <animateTransform
+            attributeName="transform"
+             begin="0s"
+            dur="10s"
+            type="translate"
+            from="3.5,3.3"
+            to="40,4.6"
+            repeatCount="indefinite" />
+      </path>
+    </pattern>
+  </defs>
+  <text text-anchor="middle" x="10" y="15" font-size="3" fill="url(#wave)"  fill-opacity="0.6">CONCOURSES</text>
+  <text text-anchor="middle" x="10" y="15" font-size="3" fill="url(#gradient)" fill-opacity="0.1">CONCOURSES</text>
+</svg>
+<style>
+	{
+		margin:0;
+		padding:0;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+	body {
+background:url("https://i.postimg.cc/fTM0jG5W/1.jpg") #F0F0F0;
+	background-size:cover;
+	color:#fff;
+	font-size: 16px;
+}
+
+
+.bchat { 
+position: absolute; 
+left: 50.8%; 
+top: 50%; 
+margin-top: 71px; 
+transform: translate(-50%, -50%); 
+width: 52vw; 
+height: 100vh; 
+padding: 20px; 
+text-align: center; 
+background-color: rgba(0, 0, 0, 0.5); 
+} 
+
+
+.wrap{
+              
+		       width: 60%;
+		       max-width: 1000px;
+		       /*margin:auto;*/
+		       }
+
+.widget{
+  
+		       width: 40%;
+		       margin: 1.5em;
+		       /*margin:32px;*/
+		       }
+.widget p{
+		       display: inline-block;
+		       line-height: .1em;
+		    
+		       }
+.fecha{
+               position: relative;
+              top: 50px; left: 1115px;
+		       font-family: Shadows Into Light, Arial;
+		       text-align: center;
+		       font-size: 0.7em;
+		       margin-bottom: 0.3125rem;
+		       /*margin-bottom: 5px;*/
+		       background: rgba(0,0,0,.5);
+	padding:1px;
+    height: 25px;
+	width: 150px;
+		       
+		       }
+.reloj{
+  position: relative;
+              top: 50px; left: 1100px;
+		      font-family: Shadows Into Light, Arial;
+		       width:57%;
+              height: 64px;
+		       padding: 1px;
+		       font-size: 2.3em;
+		       text-align: center;
+	background: rgba(0,0,0,.5);
+		       }
+.reloj .caja-segundos {
+		      display: inline-block;
+		       }
+.reloj .segundos,
+.reloj .ampm	{
+	font-size: 1.5rem;
+		      display: block;
+  
+		       }		      	      
+		
+		</style>
+
+<script>
+(function(){
+	var actualizarHora = function(){
+
+		var fecha = new Date(),
+			horas = fecha.getHours(),
+			ampm,
+			minutos = fecha.getMinutes(),
+			segundos = fecha.getSeconds(),
+			diaSemana = fecha.getDay(),
+			dia = fecha.getDate(),
+			mes = fecha.getMonth(),
+			year = fecha.getFullYear();
+
+		var pHoras = document.getElementById('horas'),
+			pAMPM = document.getElementById('ampm'),
+			pMinutos = document.getElementById('minutos'),
+			pSegundos = document.getElementById('segundos'),
+			pDiaSemana = document.getElementById('diaSemana'),
+			pDia = document.getElementById('dia'),
+			pMes = document.getElementById('mes'),
+			pYear = document.getElementById('year');
+
+		
+
+		var semana = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+		pDiaSemana.textContent = semana[diaSemana];
+
+
+		pDia.textContent = dia;
+
+		var meses = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+		pMes.textContent = meses[mes];
+		pYear.textContent = year;
+
+		if (horas >= 12) {
+			horas = horas - 12;
+			ampm = 'PM';
+		} else {
+			ampm = 'AM';
+		}
+
+		if (horas === 0 ){
+			horas = 12;
+		}
+
+		pHoras.textContent = horas;
+		pAMPM.textContent = ampm;
+
+		if (minutos < 10){ minutos = "0" + minutos; }
+		if (segundos < 10){ segundos = "0" + segundos; }
+
+		pMinutos.textContent = minutos;
+		pSegundos.textContent = segundos;
+	};
+
+	actualizarHora();
+	var intervalo = setInterval(actualizarHora, 1000);
+}());
+</script>
+</body>
+</html>
+© 2020 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
