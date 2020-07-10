@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
-	<head>
+<head>
 	<!-- Created by DazerArt-->
 
 <meta name="viewport" content="width=device-width, user-scalable=no. initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 	</head>
 	<body>
@@ -37,12 +39,29 @@
 
 
       </div>
+
+<svg>
   
-	  <svg viewbox="0 0 100 20">
+  <svg viewBox="0 0 960 300">
+	<symbol id="s-text">
+          <text text-anchor="start" x="10%" y="65%">Xat.com/</text>
+	</symbol>
+
+	<g class = "g-ants">
+		<use xlink:href="#s-text" class="text-copy"></use>
+		<use xlink:href="#s-text" class="text-copy"></use>
+		<use xlink:href="#s-text" class="text-copy"></use>
+		<use xlink:href="#s-text" class="text-copy"></use>
+		<use xlink:href="#s-text" class="text-copy"></use>
+	</g>
+      
+      </svg>
+     <svg viewbox="0 0 30 20">   
   <defs>
-    <linearGradient id="gradient" x1="0" x2="0" y1="0" y2="1">
-      <stop offset="1%" stop-color="#ffffff"/>
-      <stop offset="50" stop-color="#5c5c5c"/>
+  
+    <linearGradient id="gradient" x1="2" x2="1.7" y1="0" y2="1">
+      <stop offset="50%" stop-color="#ffa800"/>
+      <stop offset="50" stop-color="#ff6000"/>
     </linearGradient>
     <pattern id="wave" x="0" y="0" width="120" height="30" patternUnits="userSpaceOnUse">
       <path id="wavePath" d="M-40 9 Q-30 7 -20 9 T0 9 T20 9 T40 9 T60 9 T80 9 T100 9 T120 9 V20 H-40z" mask="url(#mask)" fill="url(#gradient)"> 
@@ -57,9 +76,13 @@
       </path>
     </pattern>
   </defs>
-  <text text-anchor="middle" x="10" y="15" font-size="3" fill="url(#wave)"  fill-opacity="0.6">CONCOURSES</text>
-  <text text-anchor="middle" x="10" y="15" font-size="3" fill="url(#gradient)" fill-opacity="0.1">CONCOURSES</text>
-</svg>
+  <text text-anchor="middle" x="10" y="15" font-size="4" fill="url(#wave)"  fill-opacity="0.9">CONCOURSES</text>
+  <text text-anchor="middle" x="10" y="15" font-size="4" fill="url(#gradient)" fill-opacity="0.1">CONCOURSES</text>
+   
+  </svg>
+   </svg>
+      
+
 <style>
 	{
 	margin:0;
@@ -81,6 +104,50 @@ body {
 top: 0%; width: 90%; height: 100%; .js-count-particles{-webkit-user-select: none; margin-top: 5px; margin-left: 5px; } #stats{ border-radius: 3px 3px 0 0; overflow: hidden; } .count-particles{ border-radius: 0 0 3px 3px; }}	
 
 
+svg {
+    position: relative;
+    top: 0px; left: 0px;
+
+}
+
+.text-copy {
+    font: 60px Righteous; 
+    fill: none;
+    stroke: white;
+    stroke-dasharray: 20% 90%;
+    stroke-width: 2px;
+    stroke-dashoffset: 20%;
+    animation: stroke-offset 15.5s infinite linear;
+}
+
+.text-copy:nth-child(1){
+	stroke: #fff600;
+	animation-delay: -1;
+}
+
+.text-copy:nth-child(2){
+	stroke: #ff0000;
+	animation-delay: -2s;
+}
+
+.text-copy:nth-child(3){
+	stroke: #00ff12;
+	animation-delay: -3s;
+}
+
+.text-copy:nth-child(4){
+	stroke: #0048ff;
+	animation-delay: -4s;
+}
+
+.text-copy:nth-child(5){
+	stroke: #ffffff;
+	animation-delay: -5s;
+}
+@keyframes stroke-offset{
+	100% {stroke-dashoffset: -35%;}
+}
+
 .bchat { 
 position: absolute; 
 left: 50%; 
@@ -93,6 +160,10 @@ padding: 20px;
 text-align: center; 
 background-color: rgba(0, 0, 0, 0.5); 
 } 
+
+
+
+
 
 .wrap{
               
@@ -120,7 +191,7 @@ background-color: rgba(0, 0, 0, 0.5);
 		       font-size: 0.9em;
 		       margin-bottom: 0.3125rem;
 		       /*margin-bottom: 5px;*/
-		       background: rgba(0,0,0,.5);
+		       background: rgba(0,0,0,0.5);
 	padding:1px;
     height: 25px;
 	width: 150px;
